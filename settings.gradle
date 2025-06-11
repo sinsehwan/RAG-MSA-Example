@@ -1,0 +1,6 @@
+rootProject.name = 'RAG-MSA-Example'
+
+include 'api-gateway'
+include 'user-service'
+include 'product-service'
+include 'order-service'
