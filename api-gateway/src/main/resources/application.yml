@@ -7,21 +7,23 @@ spring:
     name: api-gateway
   cloud:
     gateway:
-      routes:
-        # 사용자 서비스 라우팅
-        - id: user-service-route
-          uri: lb://user-service # k8s/docker 환경에서는 서비스 이름으로 찾는다.
-          predicates:
-            - Path=/api/users/**
+      server:
+        webflux:
+          routes:
+            # 사용자 서비스 라우팅
+            - id: user-service-route
+              uri: lb://user-service # k8s/docker 환경에서는 서비스 이름으로 찾는다.
+              predicates:
+                - Path=/api/users/**
 
-        # 상품 서비스 라우팅
-        - id: product-service-route
-          uri: lb://product-service
-          predicates:
-            - Path=/api/products/**
+            # 상품 서비스 라우팅
+            - id: product-service-route
+              uri: lb://product-service
+              predicates:
+                - Path=/api/products/**
 
-        # 주문 서비스 라우팅
-        - id: order-service-route
-          uri: lb://order-service
-          predicates:
-            - Path=/api/orders/**
+            # 주문 서비스 라우팅
+            - id: order-service-route
+              uri: lb://order-service
+              predicates:
+                - Path=/api/orders/**
