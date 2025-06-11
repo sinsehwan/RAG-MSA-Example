@@ -29,6 +29,9 @@ dependencies {
 	// log export
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2' // 간단한 테스트를 위해 인메모리 DB 사용
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
