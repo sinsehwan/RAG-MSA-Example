@@ -1,0 +1,13 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: order-service
+
+# 외부 서비스 호출을 위한 URL 설정
+# Docker compose 환경에서는 서비스 이름으로 통신
+app:
+  services:
+    user-url: http://user-service:8081/users/{userId}
+    product-url: http://product-service:8082/products/{productId}
