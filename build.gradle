@@ -1,0 +1,12 @@
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+dependencies {
+    // ... 기존 의존성 ...
+
+    // Eureka Discovery Client 추가
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.1.4'
+}

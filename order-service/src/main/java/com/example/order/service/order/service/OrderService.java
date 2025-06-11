@@ -12,15 +12,20 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class OrderService {
     private final RestTemplate restTemplate = new RestTemplate();
     private final ServiceProperties properties;
 
     //@Value("${app.services.user-url}")
-    private final String userUrl = properties.getUserUrl();
-    private final String productUrl = properties.getProductUrl();
+    private final String userUrl;
+    private final String productUrl;
+
+    public OrderService(ServiceProperties properties){
+        this.properties = properties;
+        this.userUrl = properties.getUserUrl();
+        this.productUrl = properties.getProductUrl();
+    }
 
     public String createOrder(OrderRequest orderRequest) {
         log.info("주문 생성 요청 수신: {}", orderRequest);
